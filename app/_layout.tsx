@@ -21,6 +21,8 @@ import {
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  console.log('RootLayout: Component mounting');
+  
   const [loaded] = useFonts({
     SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
   });
@@ -28,17 +30,22 @@ export default function RootLayout() {
   const { isConnected } = useNetworkState();
 
   useEffect(() => {
+    console.log('RootLayout: Fonts loaded:', loaded);
     if (loaded) {
+      console.log('RootLayout: Hiding splash screen');
       SplashScreen.hideAsync();
     }
   }, [loaded]);
 
   const colorScheme = useColorScheme();
+  console.log('RootLayout: Color scheme:', colorScheme);
 
   if (!loaded) {
+    console.log('RootLayout: Waiting for fonts to load...');
     return null;
   }
 
+  console.log('RootLayout: Rendering app');
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <LanguageProvider>

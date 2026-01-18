@@ -1,3 +1,4 @@
+
 {
   "expo": {
     "name": "KasselHub",
@@ -31,18 +32,7 @@
     },
     "plugins": [
       "expo-router",
-      "expo-localization",
-      [
-        "expo-build-properties",
-        {
-          "ios": {
-            "newArchEnabled": true
-          },
-          "android": {
-            "newArchEnabled": true
-          }
-        }
-      ]
+      "expo-localization"
     ],
     "experiments": {
       "typedRoutes": true
@@ -50,9 +40,6 @@
     "extra": {
       "router": {
         "origin": false
-      },
-      "eas": {
-        "projectId": "your-project-id"
       },
       "backendUrl": "https://ppu2nemnzztt3e8q7dzp9q5g45b3j99x.app.specular.dev"
     }
