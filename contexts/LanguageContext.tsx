@@ -36,11 +36,15 @@ const translations = {
     training: 'Training & Partnerships',
     trainingDesc: 'Professional development and collaboration',
     requestService: 'Request Service',
+    requestJordan: 'Jordan',
+    requestUAE: 'UAE',
     
     // Projects
     projectsTitle: 'Our Projects',
     projectsSubtitle: 'Case Studies & Success Stories',
     viewProject: 'View Details',
+    viewFullPortfolio: 'View Full Portfolio',
+    visitWebsite: 'Visit Website',
     
     // Blogs
     blogsTitle: 'Blog & Insights',
@@ -63,6 +67,7 @@ const translations = {
     mrKasselDesc: 'Your personal AI-powered IELTS preparation assistant with real-time feedback and progress tracking.',
     startTraining: 'Start Training',
     comingSoon: 'Coming Soon',
+    visitKasselAcademy: 'Visit Kassel Academy',
     
     // Common
     learnMore: 'Learn More',
@@ -100,11 +105,15 @@ const translations = {
     training: 'التدريب والشراكات',
     trainingDesc: 'التطوير المهني والتعاون',
     requestService: 'اطلب الخدمة',
+    requestJordan: 'الأردن',
+    requestUAE: 'الإمارات',
     
     // Projects
     projectsTitle: 'مشاريعنا',
     projectsSubtitle: 'دراسات الحالة وقصص النجاح',
     viewProject: 'عرض التفاصيل',
+    viewFullPortfolio: 'عرض المحفظة الكاملة',
+    visitWebsite: 'زيارة الموقع',
     
     // Blogs
     blogsTitle: 'المدونة والرؤى',
@@ -127,6 +136,7 @@ const translations = {
     mrKasselDesc: 'مساعدك الشخصي المدعوم بالذكاء الاصطناعي للتحضير لاختبار IELTS مع ملاحظات فورية وتتبع التقدم.',
     startTraining: 'ابدأ التدريب',
     comingSoon: 'قريباً',
+    visitKasselAcademy: 'زيارة أكاديمية كاسل',
     
     // Common
     learnMore: 'اعرف المزيد',

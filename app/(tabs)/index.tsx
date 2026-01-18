@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Image,
   Platform,
+  Linking,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -29,13 +30,22 @@ export default function HomeScreen() {
     setLanguage(newLang);
   };
 
+  const handleMrKasselPress = () => {
+    console.log('HomeScreen: User tapped Mr. Kassel - Opening kasselacademy.com');
+    Linking.openURL('https://kasselacademy.com');
+  };
+
   console.log('HomeScreen: Current language:', language, 'RTL:', isRTL);
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor: isDark ? kasselColors.backgroundDark : kasselColors.background }]} edges={['top']}>
       {/* Header */}
       <View style={[styles.header, { backgroundColor: isDark ? kasselColors.backgroundDark : kasselColors.background }]}>
-        <Text style={[styles.logo, { color: kasselColors.primary }]}>KasselSoft</Text>
+        <Image
+          source={require('@/assets/images/17f59966-1758-4784-b20b-2a7c35df32b3.jpeg')}
+          style={styles.logoImage}
+          resizeMode="contain"
+        />
         <TouchableOpacity 
           onPress={toggleLanguage}
           style={styles.languageButton}
@@ -166,28 +176,33 @@ export default function HomeScreen() {
         </View>
 
         {/* Mr. Kassel Section */}
-        <LinearGradient
-          colors={[kasselColors.secondary, kasselColors.primary]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={styles.mrKasselSection}
-        >
-          <IconSymbol
-            ios_icon_name="brain.head.profile"
-            android_material_icon_name="psychology"
-            size={60}
-            color="#FFFFFF"
-          />
-          <Text style={styles.mrKasselTitle}>{t('mrKassel')}</Text>
-          <Text style={styles.mrKasselSubtitle}>{t('mrKasselSubtitle')}</Text>
-          <Text style={styles.mrKasselDesc}>{t('mrKasselDesc')}</Text>
-          <TouchableOpacity 
-            style={styles.mrKasselButton}
-            onPress={() => console.log('HomeScreen: User tapped Start Training button')}
+        <TouchableOpacity onPress={handleMrKasselPress} activeOpacity={0.9}>
+          <LinearGradient
+            colors={[kasselColors.secondary, kasselColors.primary]}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={styles.mrKasselSection}
           >
-            <Text style={styles.mrKasselButtonText}>{t('comingSoon')}</Text>
-          </TouchableOpacity>
-        </LinearGradient>
+            <IconSymbol
+              ios_icon_name="brain.head.profile"
+              android_material_icon_name="psychology"
+              size={60}
+              color="#FFFFFF"
+            />
+            <Text style={styles.mrKasselTitle}>{t('mrKassel')}</Text>
+            <Text style={styles.mrKasselSubtitle}>{t('mrKasselSubtitle')}</Text>
+            <Text style={styles.mrKasselDesc}>{t('mrKasselDesc')}</Text>
+            <View style={styles.mrKasselButton}>
+              <Text style={styles.mrKasselButtonText}>{t('visitKasselAcademy')}</Text>
+              <IconSymbol
+                ios_icon_name="arrow.right"
+                android_material_icon_name="arrow-forward"
+                size={18}
+                color={kasselColors.primary}
+              />
+            </View>
+          </LinearGradient>
+        </TouchableOpacity>
 
         {/* CTA Section */}
         <View style={styles.ctaSection}>
@@ -229,9 +244,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: kasselColors.border,
   },
-  logo: {
-    fontSize: 24,
-    fontWeight: 'bold',
+  logoImage: {
+    width: 120,
+    height: 40,
   },
   languageButton: {
     paddingHorizontal: 12,
@@ -352,6 +367,9 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     borderRadius: 25,
     marginTop: 24,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
   },
   mrKasselButtonText: {
     color: kasselColors.primary,

@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Image,
   Platform,
+  Linking,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { IconSymbol } from '@/components/IconSymbol';
@@ -21,29 +22,34 @@ export default function ProjectsScreen() {
   const { t } = useLanguage();
   const isDark = colorScheme === 'dark';
 
+  const handlePortfolioPress = () => {
+    console.log('ProjectsScreen: User tapped portfolio link - Opening hadiyyeh.com');
+    Linking.openURL('https://hadiyyeh.com');
+  };
+
   const projects = [
     {
       title: 'Computer Vision Security System',
       category: 'Industrial & Security',
-      image: 'https://prod-finalquest-user-projects-storage-bucket-aws.s3.amazonaws.com/user-projects/c7b75b70-cf4d-4390-91ae-038b0c614559/assets/images/cdb8ab74-3650-4f08-b208-3dbef7a0a63e.jpeg',
+      image: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&q=80',
       description: 'AI-powered security monitoring with real-time threat detection',
     },
     {
       title: 'Digital Transformation Platform',
       category: 'Government',
-      image: 'https://prod-finalquest-user-projects-storage-bucket-aws.s3.amazonaws.com/user-projects/c7b75b70-cf4d-4390-91ae-038b0c614559/assets/images/24155265-1ab9-4367-b45f-4f19404859e5.jpeg',
+      image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80',
       description: 'Comprehensive IT infrastructure modernization',
     },
     {
       title: 'E-Learning Management System',
       category: 'Education',
-      image: 'https://prod-finalquest-user-projects-storage-bucket-aws.s3.amazonaws.com/user-projects/c7b75b70-cf4d-4390-91ae-038b0c614559/assets/images/a663b353-2812-4773-b755-66957f6d6246.jpeg',
+      image: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=800&q=80',
       description: 'Interactive platform for online education and training',
     },
     {
       title: 'Smart Retail Analytics',
       category: 'Retail',
-      image: 'https://prod-finalquest-user-projects-storage-bucket-aws.s3.amazonaws.com/user-projects/c7b75b70-cf4d-4390-91ae-038b0c614559/assets/images/83303a41-33b0-4550-bd79-3482a017d0a1.jpeg',
+      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80',
       description: 'Data-driven insights for retail optimization',
     },
   ];
@@ -60,6 +66,32 @@ export default function ProjectsScreen() {
       </View>
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+        {/* Portfolio Link Card */}
+        <TouchableOpacity
+          style={[styles.portfolioCard, { backgroundColor: isDark ? kasselColors.cardDark : kasselColors.card }]}
+          onPress={handlePortfolioPress}
+          activeOpacity={0.8}
+        >
+          <Image
+            source={require('@/assets/images/7a85e900-d3a0-48f4-8eb4-5d00772c03b2.png')}
+            style={styles.portfolioImage}
+            resizeMode="cover"
+          />
+          <View style={styles.portfolioOverlay}>
+            <Text style={styles.portfolioTitle}>{t('viewFullPortfolio')}</Text>
+            <Text style={styles.portfolioSubtitle}>hadiyyeh.com</Text>
+            <View style={styles.portfolioButton}>
+              <Text style={styles.portfolioButtonText}>{t('visitWebsite')}</Text>
+              <IconSymbol
+                ios_icon_name="arrow.right"
+                android_material_icon_name="arrow-forward"
+                size={20}
+                color="#FFFFFF"
+              />
+            </View>
+          </View>
+        </TouchableOpacity>
+
         <View style={styles.projectsContainer}>
           {projects.map((project, index) => (
             <TouchableOpacity
@@ -126,6 +158,63 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
+  },
+  portfolioCard: {
+    margin: 20,
+    marginBottom: 10,
+    borderRadius: 20,
+    overflow: 'hidden',
+    height: 240,
+    ...Platform.select({
+      ios: {
+        shadowColor: kasselColors.shadow,
+        shadowOffset: { width: 0, height: 6 },
+        shadowOpacity: 0.2,
+        shadowRadius: 16,
+      },
+      android: {
+        elevation: 8,
+      },
+    }),
+  },
+  portfolioImage: {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+  },
+  portfolioOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  portfolioTitle: {
+    fontSize: 24,
+    fontWeight: '800',
+    color: '#FFFFFF',
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+  portfolioSubtitle: {
+    fontSize: 18,
+    color: '#FFFFFF',
+    opacity: 0.9,
+    marginBottom: 20,
+  },
+  portfolioButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: kasselColors.primary,
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: 25,
+    gap: 8,
+  },
+  portfolioButtonText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: '700',
   },
   projectsContainer: {
     padding: 20,

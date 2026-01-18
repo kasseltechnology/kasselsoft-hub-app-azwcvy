@@ -8,6 +8,7 @@ import {
   useColorScheme,
   TouchableOpacity,
   Platform,
+  Linking,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { IconSymbol } from '@/components/IconSymbol';
@@ -19,6 +20,14 @@ export default function ServicesScreen() {
   const colorScheme = useColorScheme();
   const { t } = useLanguage();
   const isDark = colorScheme === 'dark';
+
+  const handleRequestService = (serviceName: string, region: 'jordan' | 'uae') => {
+    console.log('ServicesScreen: User requesting service:', serviceName, 'Region:', region);
+    const phoneNumber = region === 'jordan' ? '+962790025554' : '+971555870870';
+    const message = `Hello, I would like to request information about ${serviceName}`;
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    Linking.openURL(whatsappUrl);
+  };
 
   const services = [
     {
@@ -67,10 +76,9 @@ export default function ServicesScreen() {
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         <View style={styles.servicesGrid}>
           {services.map((service, index) => (
-            <TouchableOpacity
+            <View
               key={index}
               style={[styles.serviceCard, { backgroundColor: isDark ? kasselColors.cardDark : kasselColors.card }]}
-              onPress={() => console.log('ServicesScreen: User tapped service:', service.title)}
             >
               <View style={[styles.serviceIconContainer, { backgroundColor: service.color + '20' }]}>
                 <IconSymbol
@@ -86,13 +94,36 @@ export default function ServicesScreen() {
               <Text style={[styles.serviceDescription, { color: isDark ? kasselColors.textSecondaryDark : kasselColors.textSecondary }]}>
                 {service.description}
               </Text>
-              <TouchableOpacity
-                style={[styles.requestButton, { backgroundColor: service.color }]}
-                onPress={() => console.log('ServicesScreen: User requested service:', service.title)}
-              >
-                <Text style={styles.requestButtonText}>{t('requestService')}</Text>
-              </TouchableOpacity>
-            </TouchableOpacity>
+              
+              {/* WhatsApp Request Buttons */}
+              <View style={styles.requestButtonsContainer}>
+                <TouchableOpacity
+                  style={[styles.requestButton, { backgroundColor: service.color }]}
+                  onPress={() => handleRequestService(service.title, 'jordan')}
+                >
+                  <IconSymbol
+                    ios_icon_name="message.fill"
+                    android_material_icon_name="chat"
+                    size={18}
+                    color="#FFFFFF"
+                  />
+                  <Text style={styles.requestButtonText}>{t('requestJordan')}</Text>
+                </TouchableOpacity>
+                
+                <TouchableOpacity
+                  style={[styles.requestButton, { backgroundColor: service.color }]}
+                  onPress={() => handleRequestService(service.title, 'uae')}
+                >
+                  <IconSymbol
+                    ios_icon_name="message.fill"
+                    android_material_icon_name="chat"
+                    size={18}
+                    color="#FFFFFF"
+                  />
+                  <Text style={styles.requestButtonText}>{t('requestUAE')}</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
           ))}
         </View>
       </ScrollView>
@@ -158,15 +189,23 @@ const styles = StyleSheet.create({
     lineHeight: 22,
     marginBottom: 20,
   },
+  requestButtonsContainer: {
+    flexDirection: 'row',
+    gap: 10,
+  },
   requestButton: {
-    paddingVertical: 14,
-    paddingHorizontal: 24,
+    flex: 1,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
     borderRadius: 12,
     alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 6,
   },
   requestButtonText: {
     color: '#FFFFFF',
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: '700',
   },
 });
