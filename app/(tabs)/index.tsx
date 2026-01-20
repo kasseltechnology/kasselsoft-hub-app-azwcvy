@@ -72,14 +72,118 @@ export default function HomeScreen() {
           <Text style={styles.heroTagline}>{t('tagline')}</Text>
         </LinearGradient>
 
-        {/* About Section */}
+        {/* Who We Are Section */}
         <View style={[styles.section, { backgroundColor: isDark ? kasselColors.cardDark : kasselColors.card }]}>
           <Text style={[styles.sectionTitle, { color: isDark ? kasselColors.textDark : kasselColors.text }]}>
-            {t('aboutTitle')}
+            {t('whoWeAre')}
           </Text>
           <Text style={[styles.sectionText, { color: isDark ? kasselColors.textSecondaryDark : kasselColors.textSecondary }]}>
-            {t('aboutText')}
+            {t('whoWeAreText')}
           </Text>
+          
+          {/* Who We Are Images */}
+          <View style={styles.imageGrid}>
+            <View style={styles.imageCard}>
+              <Image
+                source={require('@/assets/images/134cd7b8-397b-42e5-94cb-7344aa78b45e.png')}
+                style={styles.featureImage}
+                resizeMode="contain"
+              />
+              <Text style={[styles.imageCaption, { color: isDark ? kasselColors.textDark : kasselColors.text }]}>
+                {t('innovativeTech')}
+              </Text>
+            </View>
+            
+            <View style={styles.imageCard}>
+              <Image
+                source={require('@/assets/images/8e7c722d-f404-4c97-a5c5-05fd933cbbb9.png')}
+                style={styles.featureImage}
+                resizeMode="contain"
+              />
+              <Text style={[styles.imageCaption, { color: isDark ? kasselColors.textDark : kasselColors.text }]}>
+                {t('digitalMarketing')}
+              </Text>
+            </View>
+            
+            <View style={styles.imageCard}>
+              <Image
+                source={require('@/assets/images/ac0408be-3b16-4da4-a372-f28bdf48f99a.png')}
+                style={styles.featureImage}
+                resizeMode="contain"
+              />
+              <Text style={[styles.imageCaption, { color: isDark ? kasselColors.textDark : kasselColors.text }]}>
+                {t('aiDevelopment')}
+              </Text>
+            </View>
+            
+            <View style={styles.imageCard}>
+              <Image
+                source={require('@/assets/images/d3909b07-4aaf-4bf4-93ed-811e3234f019.png')}
+                style={styles.featureImage}
+                resizeMode="contain"
+              />
+              <Text style={[styles.imageCaption, { color: isDark ? kasselColors.textDark : kasselColors.text }]}>
+                {t('mobileApps')}
+              </Text>
+            </View>
+          </View>
+        </View>
+
+        {/* Why Partner with Kassel Section */}
+        <View style={[styles.section, { backgroundColor: isDark ? kasselColors.cardDark : kasselColors.card, marginTop: 20 }]}>
+          <Text style={[styles.sectionTitle, { color: isDark ? kasselColors.textDark : kasselColors.text }]}>
+            {t('whyPartner')}
+          </Text>
+          
+          <View style={styles.partnershipList}>
+            <View style={styles.partnershipItem}>
+              <IconSymbol
+                ios_icon_name="lightbulb.fill"
+                android_material_icon_name="lightbulb"
+                size={28}
+                color={kasselColors.primary}
+              />
+              <Text style={[styles.partnershipText, { color: isDark ? kasselColors.textSecondaryDark : kasselColors.textSecondary }]}>
+                {t('innovativeSolutions')}
+              </Text>
+            </View>
+            
+            <View style={styles.partnershipItem}>
+              <IconSymbol
+                ios_icon_name="star.fill"
+                android_material_icon_name="star"
+                size={28}
+                color={kasselColors.primary}
+              />
+              <Text style={[styles.partnershipText, { color: isDark ? kasselColors.textSecondaryDark : kasselColors.textSecondary }]}>
+                {t('expertiseAI')}
+              </Text>
+            </View>
+            
+            <View style={styles.partnershipItem}>
+              <IconSymbol
+                ios_icon_name="graduationcap.fill"
+                android_material_icon_name="school"
+                size={28}
+                color={kasselColors.primary}
+              />
+              <Text style={[styles.partnershipText, { color: isDark ? kasselColors.textSecondaryDark : kasselColors.textSecondary }]}>
+                {t('educationalInitiatives')}
+              </Text>
+            </View>
+            
+            <View style={styles.partnershipItem}>
+              <IconSymbol
+                ios_icon_name="hand.thumbsup.fill"
+                android_material_icon_name="thumb-up"
+                size={28}
+                color={kasselColors.primary}
+              />
+              <Text style={[styles.partnershipText, { color: isDark ? kasselColors.textSecondaryDark : kasselColors.textSecondary }]}>
+                {t('flexibleModels')}
+              </Text>
+            </View>
+          </View>
         </View>
 
         {/* Featured Services */}
@@ -296,6 +400,43 @@ const styles = StyleSheet.create({
   sectionText: {
     fontSize: 16,
     lineHeight: 24,
+    marginBottom: 20,
+  },
+  imageGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    marginTop: 8,
+  },
+  imageCard: {
+    width: '48%',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  featureImage: {
+    width: 100,
+    height: 100,
+    marginBottom: 12,
+  },
+  imageCaption: {
+    fontSize: 14,
+    fontWeight: '600',
+    textAlign: 'center',
+  },
+  partnershipList: {
+    marginTop: 8,
+  },
+  partnershipItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+    paddingVertical: 8,
+  },
+  partnershipText: {
+    fontSize: 15,
+    lineHeight: 22,
+    marginLeft: 16,
+    flex: 1,
   },
   serviceGrid: {
     flexDirection: 'row',

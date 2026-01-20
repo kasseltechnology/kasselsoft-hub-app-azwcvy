@@ -1,8 +1,7 @@
-
 {
   "expo": {
-    "name": "KasselHub",
-    "slug": "kasselhub",
+    "name": "KasselSoft Hub",
+    "slug": "KasselSoft Hub",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/final_quest_240x240.png",
@@ -43,5 +42,6 @@
       },
       "backendUrl": "https://ppu2nemnzztt3e8q7dzp9q5g45b3j99x.app.specular.dev"
     }
-  }
+  },
+  "scheme": "KasselSoft Hub"
 }

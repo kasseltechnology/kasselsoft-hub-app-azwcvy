@@ -16,6 +16,21 @@ const translations = {
     // Home screen
     welcome: 'Welcome to KasselSoft',
     tagline: 'AI • Software • Digital Growth',
+    
+    // Who We Are
+    whoWeAre: 'Who We Are?',
+    whoWeAreText: 'Kassel is a forward-thinking IT and training company established in 2023. We specialize in web and mobile app development, digital marketing, and data-driven solutions, helping organizations adapt and grow in the digital era.',
+    innovativeTech: 'Innovative Technology',
+    aiDevelopment: 'AI Development',
+    mobileApps: 'Mobile Apps',
+    
+    // Why Partner
+    whyPartner: 'Why Partner with Kassel?',
+    innovativeSolutions: 'Innovative IT and training solutions',
+    expertiseAI: 'Expertise in AI, Web, Mobile, and SEO',
+    educationalInitiatives: 'Educational initiatives like Kassel Academy',
+    flexibleModels: 'Flexible partnership models',
+    
     aboutTitle: 'About KasselSoft',
     aboutText: 'Leading Information Technology & AI Development Company established in 2023, serving Jordan and UAE with innovative solutions.',
     featuredServices: 'Featured Services',
@@ -85,6 +100,21 @@ const translations = {
     // Home screen
     welcome: 'مرحباً بك في كاسل سوفت',
     tagline: 'الذكاء الاصطناعي • البرمجيات • النمو الرقمي',
+    
+    // Who We Are
+    whoWeAre: 'من نحن؟',
+    whoWeAreText: 'كاسل هي شركة تكنولوجيا معلومات وتدريب تفكر في المستقبل تأسست عام 2023. نحن متخصصون في تطوير تطبيقات الويب والهاتف المحمول، والتسويق الرقمي، والحلول القائمة على البيانات، مما يساعد المؤسسات على التكيف والنمو في العصر الرقمي.',
+    innovativeTech: 'تكنولوجيا مبتكرة',
+    aiDevelopment: 'تطوير الذكاء الاصطناعي',
+    mobileApps: 'تطبيقات الهاتف المحمول',
+    
+    // Why Partner
+    whyPartner: 'لماذا الشراكة مع كاسل؟',
+    innovativeSolutions: 'حلول مبتكرة لتكنولوجيا المعلومات والتدريب',
+    expertiseAI: 'خبرة في الذكاء الاصطناعي والويب والهاتف المحمول وتحسين محركات البحث',
+    educationalInitiatives: 'مبادرات تعليمية مثل أكاديمية كاسل',
+    flexibleModels: 'نماذج شراكة مرنة',
+    
     aboutTitle: 'عن كاسل سوفت',
     aboutText: 'شركة رائدة في تكنولوجيا المعلومات وتطوير الذكاء الاصطناعي تأسست عام 2023، نخدم الأردن والإمارات بحلول مبتكرة.',
     featuredServices: 'الخدمات المميزة',
